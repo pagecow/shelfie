@@ -1,6 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import Header from '../Components/Header/Header';
+import Product from '../Components/Product/Product';
 
 class AddInventory extends React.Component {
     constructor(){
@@ -72,6 +73,7 @@ class AddInventory extends React.Component {
         )
     }
 }
+
 
 
 export default AddInventory
