@@ -10,6 +10,12 @@ class AddInventory extends React.Component {
             image: 'https://static.thenounproject.com/png/1425669-200.png'
         }
     }
+
+    handleImageChange = (value) => {
+        this.setState({
+            image: value
+        })
+    }
     
     render() {
         const image = this.state.image;
@@ -23,8 +29,8 @@ class AddInventory extends React.Component {
                         <img className='img-placeholder'src={image}/>
 
                         <div className='gb-input-area'>
-                            <p className='gb-text'>Image URL:</p>
-                            <input/>
+                            <p className='gb-text' >Image URL:</p>
+                            <input onChange={e => this.handleImageChange(e.target.value)}/>
 
                             <p className='gb-text'>Product Name:</p>
                             <input/>
@@ -36,7 +42,7 @@ class AddInventory extends React.Component {
 
                         <div className='gb-buttons'>
                             <button className='gb-button-1'>Cancel</button>
-                            <button className='gb-button-2'>Add to Inventory</button>
+                            <button className='gb-button-2' >Add to Inventory</button>
                         </div>
 
                     </div>
