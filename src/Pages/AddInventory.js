@@ -7,13 +7,27 @@ class AddInventory extends React.Component {
         super();
 
         this.state = {
-            image: 'https://static.thenounproject.com/png/1425669-200.png'
+            image: 'https://static.thenounproject.com/png/1425669-200.png',
+            productName: '',
+            price: ''
         }
     }
 
     handleImageChange = (value) => {
         this.setState({
             image: value
+        })
+    }
+
+    handleProductNameChange = (value) => {
+        this.setState({
+            productName: value
+        })
+    }
+
+    handlePriceChange = (value) => {
+        this.setState({
+            price: value
         })
     }
     
@@ -33,10 +47,10 @@ class AddInventory extends React.Component {
                             <input onChange={e => this.handleImageChange(e.target.value)}/>
 
                             <p className='gb-text'>Product Name:</p>
-                            <input/>
+                            <input onChange={e => this.handleProductNameChange(e.target.value)}/>
 
                             <p className='gb-text'>Price:</p>
-                            <input type='number' placeholder='0'/>
+                            <input type='number' placeholder='0' onChange={e => this.handlePriceChange(e.target.value)}/>
 
                         </div>
 
@@ -51,5 +65,7 @@ class AddInventory extends React.Component {
         )
     }
 }
+
+
 
 export default AddInventory
