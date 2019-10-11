@@ -32,13 +32,11 @@ class AddInventory extends React.Component {
         })
     }
 
-    handleCancel = () => {
-        this.setState({
-            image: 'https://static.thenounproject.com/png/1425669-200.png',
-            productName: '',
-            price: ''
-        })
+    componentDidUpdate(){
+        console.log('this worked')
     }
+
+
     
     render() {
         const image = this.state.image;
@@ -64,7 +62,7 @@ class AddInventory extends React.Component {
                         </div>
 
                         <div className='gb-buttons'>
-                            <button className='gb-button-1' onClick={e => this.handleCancel()}>Cancel</button>
+                            <button className='gb-button-1' onClick={e => this.componentDidUpdate()}>Cancel</button>
                             <Link to='/'><button className='gb-button-2'>Add to Inventory</button></Link>
                         </div>
                     </div>

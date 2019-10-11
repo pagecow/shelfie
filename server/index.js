@@ -14,21 +14,11 @@ massive(CONNECTION_STRING).then(db => {
     console.log('db connected')
 });
 
-// app.get('/api/', ctrl.getUsers);
+app.post('/api/products', ctrl.create);
+app.get('/api/products', ctrl.read);
+app.put('/api/products', ctrl.update);
+app.delete('/api/products', ctrl.delete);
 
-// // queries
-// app.get('/api/', ctrl.getUserQuery);
-
-// // params
-// app.get('/api/ /:id', (req, res) => {
-//     const {id} = req.params;
-    
-// });
-
-// // body
-// app.post('/api/', (req, res) => {
-
-// });
 
 const port = 7777;
 app.listen(port, () => console.log('Server is running on port 7777.'));
