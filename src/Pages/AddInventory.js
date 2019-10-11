@@ -32,11 +32,9 @@ class AddInventory extends React.Component {
         })
     }
 
-    componentDidUpdate(){
-        console.log('this worked')
+    refreshPage(){ 
+        window.location.reload(); 
     }
-
-
     
     render() {
         const image = this.state.image;
@@ -62,7 +60,7 @@ class AddInventory extends React.Component {
                         </div>
 
                         <div className='gb-buttons'>
-                            <button className='gb-button-1' onClick={e => this.componentDidUpdate()}>Cancel</button>
+                            <button className='gb-button-1' onClick={ this.refreshPage }>Cancel</button>
                             <Link to='/'><button className='gb-button-2'>Add to Inventory</button></Link>
                         </div>
                     </div>
