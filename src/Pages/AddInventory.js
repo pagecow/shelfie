@@ -30,6 +30,14 @@ class AddInventory extends React.Component {
             price: value
         })
     }
+
+    handleCancel = () => {
+        this.setState({
+            image: 'https://static.thenounproject.com/png/1425669-200.png',
+            productName: '',
+            price: ''
+        })
+    }
     
     render() {
         const image = this.state.image;
@@ -55,17 +63,15 @@ class AddInventory extends React.Component {
                         </div>
 
                         <div className='gb-buttons'>
-                            <button className='gb-button-1'>Cancel</button>
-                            <button className='gb-button-2' >Add to Inventory</button>
+                            <button className='gb-button-1' onClick={e => this.handleCancel()}>Cancel</button>
+                            <Link to='/'><button className='gb-button-2'>Add to Inventory</button></Link>
                         </div>
-
                     </div>
                 </body>
             </div>
         )
     }
 }
-
 
 
 export default AddInventory
