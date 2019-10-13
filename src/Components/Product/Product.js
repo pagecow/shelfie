@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 
 class Product extends React.Component {
     constructor(props){
@@ -15,10 +16,25 @@ class Product extends React.Component {
             image3: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTAhhSgEvAn-T4m9aLTsFMBUQQ2xXsBZSpz6qFhF9XLS2hQgMC7hg',
             productName3: 'hat',
             price3: '$17',
+
+            image4: '',
+            productName4: '',
+            price4: '',
         }
     }
 
-    
+    componentDidMount() {
+        axios
+            .get('http://localhost:7777/api/products')
+            .then(res => {
+                const data = res.data;
+                this.setState({
+                    image4: data.image_url,
+                    productName4: data.product_name,
+                    price4: data.price
+                })
+            })
+    }
 
 
 
@@ -35,6 +51,10 @@ class Product extends React.Component {
         const image3 = this.state.image3;
         const productName3 = this.state.productName3;
         const price3 = this.state.price3;
+
+        const image4 = this.state.image4;
+        const productName4 = this.state.productName4;
+        const price4 = this.state.price4;
         
         
         return (
@@ -85,6 +105,26 @@ class Product extends React.Component {
                         <div className='rb-right-stuff'>
                             <p className='rb-words'>{productName3}</p>
                             <p className='rb-words'>{price3}</p>
+
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+
+                            <div className='rb-buttons'>
+                                <button className='rb-button'>Delete</button>   
+                                <button className='rb-button'>Edit</button>  
+                            </div>
+
+                        </div>
+                    </div>
+
+                        <div className='red-box'>
+                        <img className='dash-img-placeholder'src={image4}/>
+
+                        <div className='rb-right-stuff'>
+                            <p className='rb-words'>{productName4}</p>
+                            <p className='rb-words'>{price4}</p>
 
                             <br/>
                             <br/>

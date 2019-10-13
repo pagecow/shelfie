@@ -20,5 +20,4 @@ app.put('/api/products', ctrl.update);
 app.delete('/api/products', ctrl.delete);
 
 
-const port = 7777;
-app.listen(port, () => console.log('Server is running on port 7777.'));
+app.listen(SERVER_PORT, () => console.log('Server is running on port 7777.'));
