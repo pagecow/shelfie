@@ -13,7 +13,7 @@ module.exports = {
         console.log(product)
     },
     read: (req, res) => {
-        // console.log(product)
+        console.log(product)
         res.status(200).send(product);
     },
     update: (req, res) => {
@@ -28,3 +28,4 @@ module.exports = {
         res.status(200).send(product)
     }
 }
+

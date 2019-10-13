@@ -127,7 +127,7 @@ class Product extends React.Component {
 
                         <div className='rb-right-stuff'>
                             <p className='rb-words'>{productName4}</p>
-                            <p className='rb-words'>{price4}</p>
+                            <p className='rb-words'>${price4}</p>
 
                             <br/>
                             <br/>
