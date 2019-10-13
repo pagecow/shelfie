@@ -27,6 +27,7 @@ class Product extends React.Component {
         axios
             .get('http://localhost:7777/api/products')
             .then(res => {
+                console.log(res)
                 const data = res.data;
                 this.setState({
                     image4: data.image_url,
@@ -36,10 +37,12 @@ class Product extends React.Component {
             })
     }
 
-
+    
 
     
     render() {
+        console.log(this.state)
+
         const image1 = this.state.image1;
         const productName1 = this.state.productName1;
         const price1 = this.state.price1;

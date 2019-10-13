@@ -2,6 +2,7 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import Header from '../Components/Header/Header';
 import Product from '../Components/Product/Product';
+import axios from 'axios';
 
 class AddInventory extends React.Component {
     constructor(){
@@ -35,6 +36,21 @@ class AddInventory extends React.Component {
     refreshPage(){ 
         window.location.reload(); 
     }
+
+    handlePost = () => {
+        axios   
+            .post('http://localhost:7777/api/products', {
+                image_url: this.state.image,
+                product_name: this.state.productName,
+                price: this.state.price
+            })
+            .then(function(response) {
+                console.log(response)
+            })
+            .catch(function(error) {
+                console.log(error)
+            })
+    }
     
     render() {
         const image = this.state.image;
@@ -61,7 +77,7 @@ class AddInventory extends React.Component {
 
                         <div className='gb-buttons'>
                             <button className='gb-button-1' onClick={ this.refreshPage }>Cancel</button>
-                            <Link to='/'><button className='gb-button-2'>Add to Inventory</button></Link>
+                            <Link to='/'><button className='gb-button-2' onClick={this.handlePost}>Add to Inventory</button></Link>
                         </div>
                     </div>
                 </body>
