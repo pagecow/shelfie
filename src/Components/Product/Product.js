@@ -37,9 +37,20 @@ class Product extends React.Component {
             })
     }
 
-    
+    handleDeleteRequest = () => {
+        axios
+            .delete(`http://localhost:7777/api/products`)
+            .then(res => {
+                console.log(res)
+                this.setState({
+                    image4: res.data.image_url,
+                    productName4: res.data.product_name,
+                    price4: res.data.price
+                })
+            })
 
-    
+    }
+
     render() {
         console.log(this.state)
 
@@ -135,7 +146,7 @@ class Product extends React.Component {
                             <br/>
 
                             <div className='rb-buttons'>
-                                <button className='rb-button'>Delete</button>   
+                                <button className='rb-button' onClick={this.handleDeleteRequest}>Delete</button>   
                                 <button className='rb-button'>Edit</button>  
                             </div>
 
