@@ -77,7 +77,8 @@ class AddInventory extends React.Component {
 
                         <div className='gb-buttons'>
                             <button className='gb-button-1' onClick={ this.refreshPage }>Cancel</button>
-                            <Link to='/'><button className='gb-button-2' onClick={this.handlePost}>Add to Inventory</button></Link>
+                            <button className='gb-button-2' onClick={this.handlePost}>Add to Inventory</button>
+                            <Link to='/'><button className='gb-button-2' onClick={this.handlePost}>View Inventory</button></Link>
                         </div>
                     </div>
                 </body>
