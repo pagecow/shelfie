@@ -8,18 +8,22 @@ class Product extends React.Component {
             image1: 'https://scene7.zumiez.com/is/image/zumiez/pdp_hero/Champion-Men-s-Rally-Pro-Black-%26-White-Shoes-_298256.jpg',
             productName1: 'Shoes',
             price1: '$49',
+            showInput: false,
 
             image2: 'https://www.rei.com/media/product/878986',
             productName2: 'Shirt',
             price2: '$27',
+            showInput: false,
 
             image3: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTAhhSgEvAn-T4m9aLTsFMBUQQ2xXsBZSpz6qFhF9XLS2hQgMC7hg',
             productName3: 'hat',
             price3: '$17',
+            showInput: false,
 
             image4: '',
             productName4: '',
             price4: '',
+            showInput: false,
         }
     }
 
@@ -45,11 +49,25 @@ class Product extends React.Component {
                 this.setState({
                     image4: res.data.image_url,
                     productName4: res.data.product_name,
-                    price4: res.data.price
+                    price4: res.data.price,
                 })
             })
 
     }
+
+    showInput = () => {
+        if(this.state.showInput === false) {
+            return this.setState({
+                showInput: true
+            })
+        } else {
+            return this.setState({
+                showInput: false
+            })
+        }
+    }
+
+
 
     render() {
         console.log(this.state)
@@ -138,7 +156,10 @@ class Product extends React.Component {
 
                         <div className='rb-right-stuff'>
                             <p className='rb-words'>{productName4}</p>
+                            {this.state.showInput && (<input placeholder="New product name..."/>)}
+                            
                             <p className='rb-words'>${price4}</p>
+                            {this.state.showInput && (<input placeholder="New price..."/>)}
 
                             <br/>
                             <br/>
@@ -147,7 +168,9 @@ class Product extends React.Component {
 
                             <div className='rb-buttons'>
                                 <button className='rb-button' onClick={this.handleDeleteRequest}>Delete</button>   
-                                <button className='rb-button'>Edit</button>  
+                                <button className='rb-button'
+                                onClick={this.showInput}
+                                >Edit</button>  
                             </div>
 
                         </div>
