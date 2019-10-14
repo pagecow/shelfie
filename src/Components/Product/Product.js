@@ -92,6 +92,7 @@ class Product extends React.Component {
     }
 
     showInput4 = () => {
+        
         if(this.state.showInput4 === false) {
             return this.setState({
                 showInput4: true
@@ -100,7 +101,7 @@ class Product extends React.Component {
             return this.setState({
                 showInput4: false
             })
-        }
+        };   
     }
 
     handleProductNameChange1 = (value) => {
@@ -140,18 +141,48 @@ class Product extends React.Component {
     }
 
     handleProductNameChange4 = (value) => {
-        this.setState({
-            productName4: value
-        })
+        axios   
+            .put('http://localhost:7777/api/products', {
+                image_url: this.state.image4,
+                product_name: value,
+                price: this.state.price4
+            })
+            .then(function(response) {
+                console.log(response)
+            })
+            .catch(function(error) {
+                console.log(error)
+        });
     }
 
     handlePriceChange4 = (value) => {
-        this.setState({
-            price4: value
-        })
+        axios   
+            .put('http://localhost:7777/api/products', {
+                image_url: this.state.image4,
+                product_name: this.state.product_name4,
+                price: value
+            })
+            .then(function(response) {
+                console.log(response)
+            })
+            .catch(function(error) {
+                console.log(error)
+        });
     }
 
-
+    newGetRequest = () => {
+        axios   
+            .get('http://localhost:7777/api/products')
+            .then(res => {
+                console.log(res.data);
+                const data = res.data;
+                this.setState({
+                    image4: data.image_url,
+                    productName4: data.product_name,
+                    price4: data.price
+                })
+            })
+    }
 
     render() {
         console.log(this.state)
@@ -276,7 +307,7 @@ class Product extends React.Component {
                                 <button className='rb-button'
                                 onClick={this.showInput4}
                                 >Edit</button> 
-                                {this.state.showInput4 && (<button className='rb-button' onClick={this.showInput4}>Make Change</button>)}  
+                                {this.state.showInput4 && (<button className='rb-button' onClick={this.newGetRequest}>Make Change</button>)}  
                             </div>
 
                         </div>
