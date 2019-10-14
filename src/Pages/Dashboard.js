@@ -11,11 +11,7 @@ class Dashboard extends React.Component {
         return(
             <div>
                 <Header/>
-                <Product
-                    image = {this.props.image}
-                    productName = {this.props.productName}
-                    price = {this.props.price}
-                />
+                <Product/>
                 
             </div>
         )

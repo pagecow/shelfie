@@ -202,6 +202,12 @@ class Product extends React.Component {
         const image4 = this.state.image4;
         const productName4 = this.state.productName4;
         const price4 = this.state.price4;
+
+        const newItem = [{
+            image: image4,
+            productName: productName4,
+            price: price4
+        }]
         
         
         return (
@@ -287,14 +293,15 @@ class Product extends React.Component {
                         </div>
                     </div>
 
-                        <div className='red-box'>
-                        <img className='dash-img-placeholder'src={image4}/>
+                {newItem.map(newItem => 
+                    <div className='red-box'>
+                        <img className='dash-img-placeholder'src={newItem.image}/>
 
                         <div className='rb-right-stuff'>
-                            <p className='rb-words'>{productName4}</p>
+                            <p className='rb-words'>{newItem.productName}</p>
                             {this.state.showInput4 && (<input placeholder="New product name..." onChange={e => this.handleProductNameChange4(e.target.value)}/>)}
                             
-                            <p className='rb-words'>${price4}</p>
+                            <p className='rb-words'>${newItem.price}</p>
                             {this.state.showInput4 && (<input placeholder="New price..." onChange={e => this.handlePriceChange4(e.target.value)}/>)}
 
                             <br/>
@@ -312,7 +319,10 @@ class Product extends React.Component {
 
                         </div>
                     </div>
-                </body>
+                )}
+                    
+                
+            </body>
         )
     }
 }
