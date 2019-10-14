@@ -142,7 +142,7 @@ class Product extends React.Component {
 
     handleProductNameChange4 = (value) => {
         axios   
-            .put('http://localhost:7777/api/products', {
+            .put('/api/products', {
                 image_url: this.state.image4,
                 product_name: value,
                 price: this.state.price4
@@ -157,7 +157,7 @@ class Product extends React.Component {
 
     handlePriceChange4 = (value) => {
         axios   
-            .put('http://localhost:7777/api/products', {
+            .put('/api/products', {
                 image_url: this.state.image4,
                 product_name: this.state.product_name4,
                 price: value
